@@ -1,0 +1,171 @@
+{
+  "provenance": "Arte del ejemplo Aethria aportado por el usuario como referencia de su propio universo. La página fuente declara ilustraciones generadas con IA. Se reutilizan imágenes, no código, para este mismo proyecto a petición del usuario; no se afirma una licencia pública ni autoría de NEXUS. No representan gameplay.",
+  "source_site": "https://aethria-mundo-vivo.jammy-ridge-1890.chatgpt.site/",
+  "assets": [
+    {
+      "file": "assets/fantasy/hero.webp",
+      "source": "https://aethria-mundo-vivo.jammy-ridge-1890.chatgpt.site/assets/hero.webp",
+      "source_sha256": "57840ae997e7dbddc3fb0fd83e8daab7ec4be847e8812aa0dfa3814b850198ff",
+      "sha256": "e0e3f94267ec7e87c0b862a1fe6f3abc2b128e9435f54f3fbc6a32344ce80491",
+      "source_size": [
+        1672,
+        941
+      ],
+      "size": [
+        1672,
+        941
+      ],
+      "bytes": 359864
+    },
+    {
+      "file": "assets/fantasy/valdoria.webp",
+      "source": "https://aethria-mundo-vivo.jammy-ridge-1890.chatgpt.site/assets/valdoria.webp",
+      "source_sha256": "599f4640b76d0adde0d0130309560d92a9a7ea47e48441bc44822ca56c333b3b",
+      "sha256": "b160a24b5517332febb01baeaacbfc9f87acb3ae417e2932bd7f6fb4e41e25a9",
+      "source_size": [
+        1672,
+        941
+      ],
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 287872
+    },
+    {
+      "file": "assets/fantasy/dorskar.webp",
+      "source": "https://aethria-mundo-vivo.jammy-ridge-1890.chatgpt.site/assets/dorskar.webp",
+      "source_sha256": "bdb6b2f289a8c60f390c2cb1f2e2efd83272094254d733357c63483129740b8c",
+      "sha256": "1fb6411975fa65a2fadf04495c3673c5a53385a2401c8b1f7936efdb9443ee30",
+      "source_size": [
+        1672,
+        941
+      ],
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 252548
+    },
+    {
+      "file": "assets/fantasy/namaris.webp",
+      "source": "https://aethria-mundo-vivo.jammy-ridge-1890.chatgpt.site/assets/namaris.webp",
+      "source_sha256": "6986cc36104e4be00b9ba3172a73c81591875fb5702ffa2279567689c11c06a3",
+      "sha256": "06a967c181fe647a69da255ddb60d93cc7cde78a05d262083c24f7a9c90f883b",
+      "source_size": [
+        1672,
+        941
+      ],
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 245896
+    },
+    {
+      "file": "assets/fantasy/thaloria.webp",
+      "source": "https://aethria-mundo-vivo.jammy-ridge-1890.chatgpt.site/assets/thaloria.webp",
+      "source_sha256": "a2fac6c3b6b4d538358ca458bf4d3be52adccf12d9fe0ff68208a68b2765329f",
+      "sha256": "3b7a5068daacfffa2f691c1436aae05e333d4a6ed4dccad20659e9df88197ab7",
+      "source_size": [
+        1672,
+        941
+      ],
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 261710
+    },
+    {
+      "file": "assets/fantasy/eryndor.webp",
+      "source": "https://aethria-mundo-vivo.jammy-ridge-1890.chatgpt.site/assets/eryndor.webp",
+      "source_sha256": "327581fe2dff92bc3860546ce2617a09e4a46b9390815968701ef98b285ef63c",
+      "sha256": "ad0912749c7ef7aac999e9475b7ae391c28bd190c7f8f9559b3c6a3f3680d907",
+      "source_size": [
+        1672,
+        941
+      ],
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 248010
+    },
+    {
+      "file": "assets/fantasy/forge.webp",
+      "source": "https://aethria-mundo-vivo.jammy-ridge-1890.chatgpt.site/assets/forge.webp",
+      "source_sha256": "b11c91abb9e883454f1ca9ebc1cd07986e5f78782c94ce06149c586a0ef1fa32",
+      "sha256": "cbd9896255d08e4678e84e1e30fef9014a96cf31dd3c81b3e78624f9e32db77b",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "size": [
+        1280,
+        853
+      ],
+      "bytes": 200468
+    },
+    {
+      "file": "assets/fantasy/guild.webp",
+      "source": "https://aethria-mundo-vivo.jammy-ridge-1890.chatgpt.site/assets/guild.webp",
+      "source_sha256": "d7404dda215f556266572da1ef5091e8a76e8737a25e915712ecf4ebe99e8b5b",
+      "sha256": "7a6e7f954d84ebd53942dd46137f0e3fc7be3e22949ce254e9d3257262e1dedb",
+      "source_size": [
+        1672,
+        941
+      ],
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 187558
+    },
+    {
+      "file": "assets/fantasy/home.webp",
+      "source": "https://aethria-mundo-vivo.jammy-ridge-1890.chatgpt.site/assets/home.webp",
+      "source_sha256": "df3017eb7255e1c89bc76d8ff1bf5d259c8ad28f07dc4d707b259378c4216ea8",
+      "sha256": "808359da2289c67677679bdb1b6c93d6b87600e62eeb827fab444b4f153c4051",
+      "source_size": [
+        1672,
+        941
+      ],
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 171796
+    },
+    {
+      "file": "assets/fantasy/forest.webp",
+      "source": "https://aethria-mundo-vivo.jammy-ridge-1890.chatgpt.site/assets/forest.webp",
+      "source_sha256": "4324c0f1fb805937109c717a00cecee23893dc76561e496b5513d60974786825",
+      "sha256": "ab417278322bc75700c98902a4a21ebb04e9b3e6bb21cab4cafa57ca69ea93f7",
+      "source_size": [
+        1672,
+        941
+      ],
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 263768
+    },
+    {
+      "file": "assets/fantasy/adventure.webp",
+      "source": "https://aethria-mundo-vivo.jammy-ridge-1890.chatgpt.site/assets/adventure.webp",
+      "source_sha256": "da25d3d32c9ed2925aa980313b5c3f7905d324fc01193d2dd1f050779f2404c5",
+      "sha256": "da5c6e069a9e794651c51e49350877274df533743afa7d43c137a379ce8b34a1",
+      "source_size": [
+        1672,
+        941
+      ],
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 239788
+    }
+  ]
+}

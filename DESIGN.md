@@ -1,179 +1,143 @@
 # El Mundo Vivo — informe de diseño
 
-Rediseño del sitio conceptual. Fecha: 18 de octubre de 2026. Autor: perfil `construccion`
-(equipo NEXUS). Ámbito de escritura: este repositorio, excluyendo `.git` y `antes/`.
+Rediseño del sitio conceptual. Fecha: 18 de octubre de 2026. Perfil `construccion` (equipo NEXUS).
+Objetivo del encargo: pasar de «folleto ilustrado» a «ventana a un mundo», reutilizando el arte
+aportado por el autor y sin copiar código ni estructura de la referencia Aethria.
 
 ---
 
-## 1. El problema, medido sobre la versión anterior
+## 1. Diagnóstico
 
-Capturas reales de `antes/` (`assets/compare/antes-desktop.webp`, `antes-movil.webp`) y
-revisión visual externa coinciden en cuatro defectos:
-
-1. **Aviso conceptual ilegible.** Estaba en vertical, en el borde derecho, a 10 px y con
-   tracking amplio. El requisito legal/editorial más importante del sitio era el menos legible.
-2. **Jerarquía invertida en la portada.** El sol vectorial era el elemento más brillante y la
-   ciudad, el destino narrativo, era pequeña y plana.
-3. **Hueco verde inferior.** El `hero` dejaba una franja de césped sin información; el ojo caía
-   al vacío justo antes del recorte.
-4. **Texto e imagen como islas.** Titular a la izquierda, ilustración a la derecha, sin
-   elemento compartido (ni filete, ni medida, ni superposición) que los uniera.
-
-El quinto problema, no visible en una captura, era de repertorio: **cinco paisajes SVG
-prácticamente idénticos** para cinco regiones que el texto describe como radicalmente distintas.
+La versión anterior (commit 639825d) resolvió jerarquía, legibilidad del aviso conceptual y
+atribución de las láminas, pero seguía siendo un **catálogo**: portada, visión abstracta, atlas,
+lista de clases, calendario y cierre. El visitante podía mirarlo entero sin que nada le pasara.
+El encargo lo resume: «calidad mejoró pero falta alma». Faltaban personas concretas, decisiones
+con consecuencias y un lugar al que llegar.
 
 ## 2. Dos bocetos compositivos
 
-### Boceto A — «Crónica ilustrada» (elegido)
+### Boceto A — «La puerta de Valdoria» (elegido)
 
-Sitio como una publicación impresa de campo: papel cálido, tinta verde profunda, oro viejo,
-serif de alto contraste (Cormorant Garamond) para la voz y una grotesca humanista (Karla) para
-la interfaz. La portada es una **lámina a sangre** con el texto sobre un degradado; el pie de la
-lámina es una ficha de crédito legible. El resto del sitio se ordena como capítulos numerados
-(01–05) con filetes finos, capitular y citas al margen. El atlas deja de ser un mapa y pasa a ser
-un **índice de cinco entradas** con una lámina distinta por región.
+El sitio se organiza como una **primera semana en un lugar**, no como un índice de features.
+Portada a sangre con escala humana y una hora del día elegible; después, una llegada que se
+ramifica en tres respuestas; un atlas con escenas pequeñas y habitables; los siete oficios como
+registro de un taller, no como rejilla; una crónica de siete días que desemboca en una decisión
+con dos consecuencias escritas (comunidad y economía); un encargo corriente con causa, tres
+soluciones y consecuencia; y un cierre honesto de fase conceptual. Ritmo: **escena → atlas →
+texto → registro → diario → panel → cierre**.
 
-- A favor: resuelve los cuatro defectos con una sola decisión (jerarquía tipográfica + imagen
-  real); funciona con imágenes históricas de dominio público sin fingir capturas; escalable a
-  móvil sin reflow complejo; honesto con el estado conceptual.
-- En contra: depende de la calidad de las láminas; hay que atribuirlas y explicarlas.
+- A favor: cada sección responde a una pregunta de visitante; las interacciones son contenido,
+  no adorno; el arte se usa como escenario y no como lámina de museo; encaja con el canon de
+  fantasía acogedora y con el estado conceptual.
+- En contra: exige escribir prosa nueva y etiquetar bien qué es canon y qué es escena; más
+  estados que mantener (luz, llegada, decisión, encargo).
 
-### Boceto B — «Cartografía nocturna»
+### Boceto B — «Crónica de viaje a pantalla partida»
 
-Fondo azul tinta, retícula cartográfica, mayúsculas iluminadas, mapa interactivo con puntos
-calientes y un atlas que se recorre como un mapa de navegación. Muy atmosférico y muy
-«videojuego», pero:
+Una sola línea temporal larga, con el mapa a la izquierda y un diario que se desplaza a la
+derecha; el visitante avanza por estaciones del año. Muy atmosférico, pero:
 
-- reproduce el mismo vicio que se quería corregir (una maraña de SVG propia en el papel
-  protagonista), y el brief lo desaconseja explícitamente;
-- exige un mapa dibujado a mano que competiría con las láminas en lugar de complementarlas;
-- en móvil, un mapa con puntos calientes es peor experiencia que una lista.
+- convierte toda la web en un único scroll narrativo y deja los cinco regiones y los siete
+  oficios sin espacio propio;
+- depende de un mapa dibujado que competiría con el arte real;
+- en móvil, la pantalla partida se degrada a una columna larga sin hitos claros.
 
-**Decisión: A.** Gana por brief (fantasía habitable, Decide/Learn, no dashboard), por
-accesibilidad (texto grande, contraste alto, foco visible) y porque permite usar arte real con
-procedencia verificable en lugar de sustituirlo con vectores inventados.
+**Decisión: A.** Gana por encargo (mundo habitable), por accesibilidad (secciones con nombre y
+anclas) y porque permite alternar escena, atlas y texto sin alargar el sitio con componentes
+de la referencia.
 
-## 3. Principios extraídos de las referencias públicas
+## 3. Sistema visual
 
-Consultadas por NEXUS: `palia.com` (fantasía de vida) y `playableworlds.com` (historias
-sociales). Se extraen principios, **no assets**:
+- **Paleta:** tinta `#16211c`, tinta profunda `#0e1713`, papel `#f6f0e2`, salvia `#dfe1cb`,
+  oro `#d3a95f`, oro profundo `#9c6f2c`. Tonos cálidos de bosque y ámbar; nada de noir.
+- **Tipografía:** Cormorant Garamond (titulares, citas, cifras) y Karla (interfaz y cuerpo),
+  locales en `assets/fonts/*.woff2`, SIL OFL 1.1; licencia completa en `assets/fonts/OFL.txt`.
+  Cuerpo 17 px; etiquetas funcionales ≥ 0.66 rem; ningún texto vertical.
+- **Portada:** `hero.webp` a sangre, doble degradado, titular a 780 px, silla junto al fuego como
+  promesa concreta. Controles **Amanecer / Ocaso / Noche** con `aria-pressed`, tratamiento de
+  color de la propia página y nota explícita de que no simula el paso del tiempo.
+- **Ritmo:** bandas papel / tinta / salvia alternas, pero cada sección tiene una composición
+  distinta: llegada (puertas + escena), atlas (índice + lámina), oficios (registro + ficha),
+  crónica (calendario + diario + decisión), encargo (imagen + diálogo + soluciones), cierre.
+- **Controles:** objetivos táctiles ≥ 44 px, `:focus-visible` oro, `prefers-reduced-motion`,
+  sin autoplay, sin partículas permanentes, sin localStorage.
+- **Progresividad:** todo el contenido por defecto está en el HTML; el JS solo cambia el estado.
+  Sin JS se lee la llegada de la forja, Valdoria, el artesano, el lunes y el encargo con cuñas.
 
-- la promesa se enuncia como una vida, no como una mecánica;
-- la imagen hace de escenario habitable y el texto se apoya en ella, no la flanquea;
-- el estado del producto (fase conceptual, sin lanzamiento) se dice sin letra pequeña;
-- nada de capturas falsas ni de cifras de comunidad inventadas.
+## 4. Contrato cubierto
 
-## 4. Sistema visual aplicado
+1. Portada envolvente con hero, escala humana, aire y tipografía local; tres luces accesibles.
+2. Llegada a Valdoria con tres respuestas (trabajo / ciudad / explorar), texto distinto y arte
+   relacionado (`forge`, `home`, `forest`), sin estadísticas ni progreso ficticio.
+3. Cinco regiones con su arte y una situación narrativa breve, etiquetadas como escenas
+   ilustrativas.
+4. Siete oficios con voz cotidiana («un día cualquiera» y «lo que no se ve»), sin rejilla SaaS.
+   Adrian, Elias y Lucian aparecen solo como ejemplos de jugador de la biblia.
+5. Crónica de siete días y decisión del derrumbe con tres ramas escritas (no intervenir / bajar
+   a la mina / traer suministros), cada una con consecuencias de comunidad y economía.
+6. Mundo cálido: taller, hogar, viajeros y necesidades; encargo del molino con causa, tres
+   soluciones y consecuencia.
+7. Cierre de fase conceptual sin beta, fecha ni financiación inventada; compromisos y enlace al
+   manifiesto existente.
 
-- **Paleta:** tinta `#16211c`, papel `#f5f0e5`, salvia `#e3e2cf`, oro `#c9a25c`, oro profundo
-  `#a97c33`, texto `#2b3a32`, secundario `#59675d`.
-- **Tipografía:** Cormorant Garamond (400/600/itálica) para titulares, citas y cifras; Karla
-  (400/600) para navegación, etiquetas y cuerpo pequeño. Ambas **locales** en
-  `assets/fonts/*.woff2`, SIL OFL 1.1, sin peticiones a Google. Licencia y avisos completos
-  en `assets/fonts/OFL.txt` (ver §6).
-- **Microtipografía:** ninguna etiqueta funcional por debajo de 12 px; se elimina todo texto
-  vertical; el aviso conceptual pasa a una ficha horizontal de 12,5 px sobre fondo oscuro.
-- **Portada:** imagen a sangre 16:9, doble degradado (izquierda y abajo), titular a 17ch,
-  botón dorado y enlace secundario. Altura `clamp(560px, 86svh, 800px)`.
-- **Capítulos:** numeración 01–05 con etiqueta, filete de sección y medida de línea de 62ch.
-- **Atlas:** lista `role="tablist"` vertical (Ⅰ–Ⅴ) y panel con lámina 3:2, pie de crédito y
-  ficha descriptiva. Flechas, Inicio y Fin mueven la selección; el foco se mantiene visible.
-- **Caminos:** siete celdas en rejilla (4 + 3 en escritorio, 2 columnas en tablet, **1** en
-  móvil), estado activo en tinta y oro; detalle en dos columnas con progresión. En móvil la
-  séptima celda vuelve a una sola pista (`grid-column: auto`), medida y verificada.
-- **Crónica:** siete días como tira de calendario con día activo en tinta y número de día grande.
-- **Responsive:** 1440 / 768 / 390 sin desbordamiento horizontal; menú desplegable con
-  `aria-expanded`, cierre por Escape y foco devuelto al botón.
+## 5. Arte y procedencia
 
-## 5. Imágenes: procedencia y licencia
+Once WebP en `assets/fantasy/` procedentes del ejemplo visual Aethria aportado por el autor para
+este mismo universo; la página de origen declara ilustraciones generadas con IA. Se reutiliza el
+arte, no el código ni la estructura. Manifiesto con URL y SHA-256 en
+`assets/fantasy/sources.json`. No se atribuye dominio público ni autoría de NEXUS. Las imágenes
+no son capturas de juego.
 
-Todas son obras históricas de **dominio público** de The Metropolitan Museum of Art
-(Open Access), descargadas del API público, recortadas y convertidas a WebP con Pillow.
-No son capturas de ningún videojuego y no se presentan como tales: cada una lleva su ficha.
+Uso: `hero` portada; `valdoria`, `dorskar`, `namaris`, `thaloria`, `eryndor` atlas; `forge`
+llegada-trabajo; `home` llegada-ciudad y molino; `forest` llegada-explorar. `guild` y `adventure`
+quedan como arte de reserva para no repetir escenas en la portada actual. Tarjeta social
+regenerada desde `hero.webp` a 1200×630.
 
-| Uso | Obra | Autor | Año | Objeto Met |
-|---|---|---|---|---|
-| Portada | *Merced River, Yosemite Valley* | Albert Bierstadt | 1866 | [10150](https://www.metmuseum.org/art/collection/search/10150) |
-| Valdoria | *Wide River Landscape* | Philips Koninck | c. 1648–49 | [436832](https://www.metmuseum.org/art/collection/search/436832) |
-| Dorskar | *The Forest in Winter at Sunset* | Théodore Rousseau | c. 1846–67 | [438816](https://www.metmuseum.org/art/collection/search/438816) |
-| Namaris | *Red Sunset* | Arkhip Kuindzhi | 1905–08 | [436833](https://www.metmuseum.org/art/collection/search/436833) |
-| Thaloria | *Sunset on the Sea* | John Frederick Kensett | 1872 | [11325](https://www.metmuseum.org/art/collection/search/11325) |
-| Eryndor | *The Forest of Arden* | Albert Pinkham Ryder | 1888–97 | [11977](https://www.metmuseum.org/art/collection/search/11977) |
+## 6. Limpieza y correcciones de NEXUS
 
-Archivos: `assets/art/*.webp` (portada 2400×1350, 84 %; regiones 1400×933, 80 %).
-Total aproximado: 1,08 MB. Atribución repetida en cada lámina, en el pie del sitio y en
-`privacidad.html`.
+Retirados con `git rm` los destinos autorizados `antes/`, `compare.html`, `assets/compare/`,
+`assets/art/` y los paisajes SVG heredados. La aprobación inteligente nativa autorizó esta
+eliminación acotada en la sesión interactiva. Se conservan `.git`, `assets/sigil.svg`,
+tipografías y arte de fantasía. El historial de Git permite recuperar lo anterior.
 
-## 6. Tipografías: licencia y procedencia
+NEXUS corrigió el selector de luz para que seleccione botones y no incluya el elemento HTML.
+La crónica de siete días vuelve a respetar la secuencia original de rescate, descubrimiento,
+reconstrucción y santuario; las respuestas alternativas se etiquetan por separado. El tono
+de las escenas no penaliza no intervenir ni convierte la vida cotidiana en obligaciones.
+El selector de luz deja de ser una caja flotante que tapa la figura de la portada; se integra
+en el flujo y se mejora el tamaño/contraste del aviso y de las etiquetas móviles del calendario.
 
-Ambas familias se sirven desde `assets/fonts/` (seis WOFF2, sin CDN ni peticiones de terceros):
-
-| Familia | Archivos | Versión | Copyright (nameID 0) | Licencia |
-|---|---|---|---|---|
-| Cormorant Garamond | `cormorant-garamond-400-normal`, `-400-italic`, `-600-normal` | 4.001 | Copyright 2015 The Cormorant Project Authors (github.com/CatharsisFonts/Cormorant) | SIL OFL 1.1 (nameID 14: https://openfontlicense.org) |
-| Karla | `karla-400-normal`, `-400-italic`, `-600-normal` | 2.004 (gftools 0.9.33) | Copyright 2019 The Karla Project Authors (https://github.com/googlefonts/karla) | SIL OFL 1.1 (nameID 14: https://scripts.sil.org/OFL) |
-
-Procedencia comprobable: los avisos anteriores **no** se deducen del nombre del archivo; se
-han extraído de la tabla `name` embebida en cada WOFF2 (`fontTools`, nameID 0, 5 y 14), de modo
-que el copyright y la licencia viajan dentro del propio binario distribuido, como exige la
-condición 2 de la OFL. El texto íntegro de la SIL Open Font License 1.1 —preámbulo,
-definiciones, cinco condiciones, terminación y exención— está en
-`assets/fonts/OFL.txt`, junto a los dos avisos de copyright y la versión de cada archivo; la
-página `privacidad.html` enlaza ese archivo. Fuente oficial de la licencia:
-<https://openfontlicense.org/open-font-license-official-text/>.
-
-## 7. Estructura de archivos
-
-```
-index.html          portada + 01 visión + 02 atlas + 03 caminos + 04 crónica + 05 horizonte
-compare.html        comparativa honesta antes/después (capturas reales, sin puntuaciones)
-vision.html         manifiesto (contenido previo, ahora con la hoja nueva)
-privacidad.html     privacidad, alojamiento, láminas y tipografías
-styles.css          hoja única, comentada por secciones
-app.js              interacciones: regiones, caminos, días, menú (sin dependencias)
-assets/art/         seis WebP de dominio público
-assets/compare/     capturas antes/después en WebP
-assets/fonts/       seis WOFF2 (Cormorant Garamond y Karla) + OFL.txt con licencia completa
-assets/*.svg        sigilo y material vectorial heredado (no se usa en la portada)
-antes/              versión anterior intacta
-```
-
-## 8. Pruebas ejecutadas (Chrome real vía HTTP, 1440/768/390)
-
-Ejecutadas con Playwright sobre Chrome instalado y `python -m http.server` en 127.0.0.1:8765,
-con las fuentes servidas por HTTP (no `file://`).
+## 7. Pruebas
 
 - `node --check app.js` → sin errores de sintaxis.
-- **Rejilla móvil de caminos (ronda 2):** a 390 px `gridTemplateColumns` = `348px` —una única
-  pista— y los **siete** botones miden 348 px de ancho. A 1440 px: `276.75px ×4` con la séptima
-  celda a 555 px (4 + 3). Corregido el `span 2` heredado que creaba una segunda columna implícita
-  (medido antes: `135.562px 196.438px`).
-- **Navegación secundaria de `compare.html` (ronda 2):** `display: flex` y `visibility: visible`
-  a 390, 768 y 1440. A 390 se oculta «Inicio» (el logotipo ya enlaza al inicio) y queda visible
-  «Versión anterior»; a 768 se ven ambos enlaces.
-- Las **cinco** regiones seleccionan su lámina, actualizan ficha, etiquetas y `aria-selected`;
-  todas las imágenes cargan (`naturalWidth > 0`).
-- Los **siete** caminos actualizan título, texto, cita y progresión (`aria-pressed` correcto).
-- Los **siete** días actualizan número, título, texto y personas; «Siguiente día» cicla al lunes.
-- Teclado: flecha abajo en el atlas pasa a Dorskar con foco; flecha derecha en caminos pasa a
-  Aventurero. `Escape` cierra el menú móvil y devuelve el foco.
-- Sin desbordamiento horizontal (`scrollWidth == clientWidth`) en `/`, `/compare.html`,
-  `/vision.html` y `/privacidad.html` a 390, 768 y 1440: 12 combinaciones medidas.
-- Cero respuestas HTTP ≥ 400, cero peticiones fallidas y cero errores de consola en esas 12
-  combinaciones.
-- Fuentes locales cargadas: `document.fonts` reporta Cormorant Garamond 400 normal, 400 italic y
-  600 normal, y Karla 400 y 600 (`status: loaded`).
-- Capturas de la comparativa regeneradas tras la corrección: `despues-portada.webp` (1400×875),
-  `despues-desktop.webp` (1400×6972) y `despues-movil.webp` (390×8779).
+- Tarjeta social generada con Pillow (`-I`) desde `hero.webp`: 1200×630.
+- Primera comprobación NEXUS HTTP: nueve combinaciones de tres páginas a 390/768/1440,
+  sin desbordamiento, imágenes rotas ni errores de consola; cinco regiones, siete caminos,
+  siete días y menú respondieron. Detectó que faltaba la limpieza, completada después.
+- Comprobación final HTTP NEXUS: nueve combinaciones de tres páginas a 390/768/1440;
+  cero desbordamientos, errores de consola o recursos fallidos, y limpieza confirmada.
+- Prueba profunda NEXUS a 320/390/768/1440: tres luces con filtros distintos, tres llegadas,
+  tres respuestas al derrumbe y tres soluciones del molino con salidas distintas y estados
+  ARIA exclusivos; teclado, ciclo semanal, movimiento reducido y contenido inicial sin JS pasan.
+- Capturas finales de portada de escritorio y llegada móvil inspeccionadas con visión: sin
+  solapamientos visibles. Las primeras capturas tenían restauración de scroll y carga diferida
+  sin esperar: se corrigió el capturador, no se confundieron esos artefactos con fallos de la web.
+- `node --check`, `git diff --check` y comprobación de cambios preparados pasan en primer plano.
+  La cadena de pruebas en segundo plano terminó con un error de terminal después de pasar ambos
+  tests de navegador; la comprobación de sintaxis se repitió correctamente en primer plano.
+- Límites: no es una auditoría completa WCAG ni una prueba en dispositivos físicos o lectores
+  de pantalla. La publicación y su lectura de vuelta se registran en el cierre de NEXUS.
 
-## 9. Límites conocidos
+## 8. Estructura de archivos
 
-- No se ha publicado nada: `git` sin commit, sin push. La revisión y la publicación
-  corresponden a NEXUS.
-- Las láminas son pinturas históricas: sugieren atmósfera, no representan el juego. Se dice
-  explícitamente en cada pie y en `privacidad.html`.
-- El manifiesto (`vision.html`) mantiene su contenido original; solo hereda la hoja nueva.
-- `assets/social.png` sigue siendo la tarjeta social anterior; conviene regenerarla a partir de
-  la nueva portada antes de publicar.
-- No se ha medido con lector de pantalla real; la semántica se ha limitado a lo verificable
-  (roles de tab, `aria-selected`, `aria-pressed`, `aria-expanded`, foco visible).
+```
+index.html       portada, llegada, atlas, oficios, crónica, encargo, horizonte
+styles.css       hoja única comentada por secciones
+app.js           luz, llegada, regiones, oficios, días, ramas, molino, menú (vanilla)
+vision.html      manifiesto previo (hereda la hoja nueva)
+privacidad.html  privacidad, alojamiento, arte IA, tipografías, estado
+assets/fantasy/  once WebP + sources.json (NEXUS, solo lectura)
+assets/fonts/    seis WOFF2 + OFL.txt
+assets/sigil.svg único vector heredado en uso
+assets/social.png tarjeta social 1200×630 regenerada
+```

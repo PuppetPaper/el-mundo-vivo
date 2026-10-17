@@ -1,20 +1,20 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-time="amanecer">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#16211c">
-<title>El Mundo Vivo — Tu vida. Tu historia. Tu lugar.</title>
-<meta name="description" content="La visión de un MMORPG de fantasía persistente: cinco regiones, siete caminos de vida y un mundo que sigue sin ti. Proyecto en fase conceptual.">
-<meta property="og:title" content="El Mundo Vivo — No eres el elegido. Eres parte del mundo.">
-<meta property="og:description" content="Una crónica ilustrada de un mundo habitable: cinco regiones, siete caminos, siete días de una misma historia.">
+<meta name="theme-color" content="#14201a">
+<title>El Mundo Vivo — Hay una silla junto al fuego</title>
+<meta name="description" content="La visión de un MMORPG de fantasía persistente: llega a Valdoria, recorre cinco regiones y encuentra tu forma de vivir. Escenas interactivas de un universo conceptual.">
+<meta property="og:title" content="El Mundo Vivo — El mundo no te espera. Pero hay una silla junto al fuego.">
+<meta property="og:description" content="Una ventana a un mundo habitable: cinco regiones, siete caminos de vida y pequeñas historias que se cruzan.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_ES">
 <meta property="og:url" content="https://puppetpaper.github.io/el-mundo-vivo/">
 <meta property="og:image" content="https://puppetpaper.github.io/el-mundo-vivo/assets/social.png">
 <link rel="icon" href="assets/sigil.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/cormorant-garamond-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/art/hero-valdoria.webp" as="image">
+<link rel="preload" href="assets/fantasy/hero.webp" as="image" fetchpriority="high">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -27,12 +27,12 @@
   </a>
   <button class="menu-toggle" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú"><span></span><span></span></button>
   <nav id="nav" aria-label="Navegación principal">
-    <a href="#vision">La visión</a>
-    <a href="#atlas">Las cinco regiones</a>
-    <a href="#caminos">Siete caminos</a>
+    <a href="#llegada">Llegar</a>
+    <a href="#atlas">Las regiones</a>
+    <a href="#caminos">Tu camino</a>
     <a href="#cronicas">La crónica</a>
+    <a href="#encargo">El encargo</a>
     <a href="#horizonte">El proyecto</a>
-    <a class="nav-quiet" href="compare.html">Comparativa</a>
   </nav>
 </header>
 
@@ -41,61 +41,94 @@
   <!-- ============ PORTADA ============ -->
   <section id="inicio" class="cover" aria-labelledby="cover-title">
     <figure class="cover-plate">
-      <img src="assets/art/hero-valdoria.webp" width="2400" height="1350" alt="Lámina histórica: un valle profundo con un río en calma, pinos y una montaña iluminada entre la niebla (Albert Bierstadt, Merced River, 1866).">
+      <img src="assets/fantasy/hero.webp" width="1672" height="941" fetchpriority="high"
+           alt="Ilustración atmosférica del universo: una ciudad de fantasía entre bosques y montañas, con luz cálida y figuras pequeñas en primer plano.">
     </figure>
     <div class="cover-veil" aria-hidden="true"></div>
+    <div class="cover-sky" aria-hidden="true"><span class="cover-orb"></span></div>
     <div class="cover-inner">
       <p class="kicker">Fase conceptual · MMORPG de fantasía persistente</p>
-      <h1 id="cover-title">El mundo no te espera.<br><em>Pero tiene un lugar para ti.</em></h1>
-      <p class="cover-lead">No hace falta salvar un reino para formar parte de su historia. A veces basta con abrir las puertas de una pequeña posada.</p>
+      <h1 id="cover-title">El mundo no te espera.<br><em>Pero hay una silla junto al fuego.</em></h1>
+      <p class="cover-lead">Llegas a Valdoria en una caravana, con lo puesto. El conductor te pregunta si buscas trabajo, si quieres explorar o si prefieres conocer la ciudad. No hay una respuesta correcta.</p>
       <div class="cover-actions">
-        <a class="btn btn-gold" href="#atlas">Recorrer las cinco regiones <span aria-hidden="true">↗</span></a>
-        <a class="btn btn-quiet" href="#vision">Leer la visión <span aria-hidden="true">↓</span></a>
+        <a class="btn btn-gold" href="#llegada">Entrar en Valdoria <span aria-hidden="true">↗</span></a>
+        <a class="btn btn-quiet" href="#atlas">Ver las cinco regiones <span aria-hidden="true">↓</span></a>
       </div>
     </div>
+
+    <div class="light-dial" role="group" aria-labelledby="light-label">
+      <p id="light-label" class="light-label">Luz de la portada</p>
+      <div class="light-buttons">
+        <button type="button" data-time="amanecer" aria-pressed="true">Amanecer</button>
+        <button type="button" data-time="ocaso" aria-pressed="false">Ocaso</button>
+        <button type="button" data-time="noche" aria-pressed="false">Noche</button>
+      </div>
+      <p class="light-note">Cambia la luz de esta página. El mundo, por ahora, solo existe en el papel.</p>
+      <p class="sr-only" role="status" id="light-status"></p>
+    </div>
+
     <div class="cover-foot">
-      <p><strong>Lámina I</strong> Albert Bierstadt, <cite>Merced River, Yosemite Valley</cite>, 1866. Dominio público, The Met. <span class="sep">·</span> Ilustración histórica, no una captura del juego.</p>
-      <p class="cover-foot-place">Valdoria <span>El corazón de los reinos</span></p>
+      <p><strong>Arte conceptual aportado por el autor.</strong> Ilustración generada con IA; no es una captura de juego.</p>
+      <p class="cover-foot-place">Valdoria <span>La hora en que llega el carro</span></p>
     </div>
   </section>
 
-  <!-- ============ 01 VISIÓN ============ -->
-  <section id="vision" class="band band-paper" aria-labelledby="vision-title">
+  <!-- ============ 01 LLEGADA ============ -->
+  <section id="llegada" class="band band-paper arrival" aria-labelledby="arrival-heading">
     <div class="wrap">
-      <div class="band-head">
-        <p class="index-label"><span>01</span> La visión</p>
-        <h2 id="vision-title">No vengas a seguir una historia.<br><em>Ven a tener una vida.</em></h2>
-      </div>
-      <div class="vision-grid">
-        <div class="vision-text">
-          <p class="dropcap">En El Mundo Vivo, el herrero que forja una espada importa tanto como quien la empuña. Un hogar, una amistad o una ruta comercial pueden ser el principio de algo extraordinario.</p>
-          <p>Imaginamos un mundo compartido que continúa cuando cierras la puerta: habitantes con sueños propios, oficios que se sostienen entre sí y lugares que conservan la huella de quienes pasan por ellos.</p>
-          <a class="link-arrow" href="vision.html">Leer el manifiesto completo <span aria-hidden="true">→</span></a>
+      <div class="band-head band-head-row">
+        <div>
+          <p class="index-label"><span>01</span> Tu primera hora</p>
+          <h2 id="arrival-heading">Tres respuestas.<br><em>Ninguna te obliga a nada.</em></h2>
         </div>
-        <div class="vision-side">
-          <blockquote class="pullquote">
-            <p>«No eres el elegido. Eso lo cambia todo.»</p>
-            <cite>Principio de diseño del universo</cite>
-          </blockquote>
-          <ol class="principles">
-            <li><span class="num">Ⅰ</span><div><h3>Libertad para existir</h3><p>Sin clase obligatoria. Sin una única forma correcta de jugar.</p></div></li>
-            <li><span class="num">Ⅱ</span><div><h3>Historias que permanecen</h3><p>Tus decisiones no terminan cuando entregas una misión.</p></div></li>
-            <li><span class="num">Ⅲ</span><div><h3>Tu tiempo es tuyo</h3><p>Sin rachas diarias ni una segunda jornada de obligaciones.</p></div></li>
-          </ol>
-        </div>
+        <p class="band-lede">El carro se detiene en la plaza. El conductor descarga tu equipaje y, antes de arrancar, pregunta: «¿Buscas trabajo, quieres explorar o prefieres conocer la ciudad?». Son las siete y huele a pan.</p>
       </div>
+
+      <div class="arrival-doors" role="group" aria-label="Elige tu primera parada en Valdoria">
+        <button type="button" class="door" data-arrival="forja" aria-pressed="true">
+          <span class="door-num">Ⅰ</span>
+          <span class="door-name">Buscar trabajo</span>
+          <span class="door-hint">La forja de la plaza</span>
+        </button>
+        <button type="button" class="door" data-arrival="taberna" aria-pressed="false">
+          <span class="door-num">Ⅱ</span>
+          <span class="door-name">Conocer la ciudad</span>
+          <span class="door-hint">La taberna y el mercado</span>
+        </button>
+        <button type="button" class="door" data-arrival="camino" aria-pressed="false">
+          <span class="door-num">Ⅲ</span>
+          <span class="door-name">Explorar</span>
+          <span class="door-hint">El camino del bosque</span>
+        </button>
+      </div>
+
+      <article class="arrival-scene" aria-live="polite">
+        <figure class="scene-plate">
+          <img id="arrival-art" src="assets/fantasy/forge.webp" width="1280" height="853" loading="lazy" decoding="async"
+               alt="Escena ilustrativa: un herrero trabajando junto al yunque, con chispas y luz cálida de fragua.">
+          <figcaption id="arrival-caption">Escena ilustrativa · La forja, primera hora</figcaption>
+        </figure>
+        <div class="scene-copy">
+          <p class="kicker" id="arrival-kicker">La forja de la plaza</p>
+          <h3 id="arrival-title">El herrero no levanta la vista del yunque.</h3>
+          <p id="arrival-text">Te señala un banco con la barbilla y sigue golpeando. Al rato te tiende unas tenazas: no para que forjes, sino para que sujetes. La pieza es una bisagra para la puerta de la escuela y no puede esperar.</p>
+          <p id="arrival-text-2">No has aprendido a forjar. Has aprendido dónde se guardan las tenazas, que es distinto y también sirve. Al salir, el maestro dice que vuelvas mañana: la puerta queda abierta.</p>
+          <p class="scene-open" id="arrival-open"><span>Queda abierto</span> Un banco libre y una pregunta: ¿vuelves mañana?</p>
+        </div>
+      </article>
+      <p class="scene-note">Escena ilustrativa escrita para esta web. No reproduce un pasaje literal de la biblia.</p>
     </div>
   </section>
 
   <!-- ============ 02 ATLAS ============ -->
-  <section id="atlas" class="band band-ink" aria-labelledby="atlas-title">
+  <section id="atlas" class="band band-ink atlas-band" aria-labelledby="atlas-title">
     <div class="wrap">
       <div class="band-head band-head-row">
         <div>
           <p class="index-label"><span>02</span> La cartografía</p>
-          <h2 id="atlas-title">Cinco regiones.<br><em>Infinitas razones para perderse.</em></h2>
+          <h2 id="atlas-title">Cinco regiones.<br><em>Cinco maneras de llegar a casa.</em></h2>
         </div>
-        <p class="band-lede">Más allá de las rutas conocidas siempre queda una historia por descubrir. Recorre el índice y abre cada lámina.</p>
+        <p class="band-lede">Cada región tiene su clima, su mercado y su manera de mirar a un forastero. Abre una y fíjate en lo pequeño: es lo que se recuerda de un sitio.</p>
       </div>
 
       <div class="atlas">
@@ -129,18 +162,21 @@
 
         <div class="atlas-detail" id="region-detail" role="tabpanel" aria-labelledby="tab-valdoria" tabindex="0">
           <figure class="atlas-plate">
-            <img class="region-art" src="assets/art/region-valdoria.webp" width="1400" height="933" alt="Lámina histórica de Valdoria: un río ancho, pastos, barcas y una ciudad lejana bajo un cielo inmenso. Pintura de Philips Koninck, dominio público.">
-            <figcaption class="plate-caption"><span id="region-plate">Lámina · Philips Koninck, <cite>Wide River Landscape</cite>, c. 1648</span><span class="plate-tag">Dominio público · The Met</span></figcaption>
+            <img class="region-art" src="assets/fantasy/valdoria.webp" width="1280" height="720" loading="lazy" decoding="async"
+                 alt="Escena ilustrativa de Valdoria: prados, un río ancho y una ciudad de piedra bajo un cielo amplio.">
+            <figcaption class="plate-caption"><span id="region-plate">Escena ilustrativa · Valdoria</span><span class="plate-tag">Arte del universo · IA</span></figcaption>
           </figure>
           <div class="atlas-copy">
             <p class="kicker" id="region-kicker">El corazón de los reinos</p>
             <h3 id="region-name">Valdoria</h3>
-            <p id="region-description">Prados abiertos, bosques templados y ciudades comerciales donde todos los caminos parecen cruzarse. El lugar en el que una llegada corriente puede convertirse en el principio de una vida extraordinaria.</p>
+            <p id="region-description">El mercado abre antes de que aclare. Entre puestos de queso y herraduras, dos carreteros discuten por el precio del hierro y una niña persigue a un ganso que no piensa dejarse atrapar. Nadie te mira dos veces: eso, aquí, es una forma de cortesía.</p>
+            <p class="region-if" id="region-if"><span>Si te quedaras</span> Tu casa estaría a diez minutos del taller y a dos del pan.</p>
             <div class="tags" id="region-tags"><span>Comercio</span><span>Academias</span><span>Primeros pasos</span></div>
-            <p class="atlas-note" id="region-note">Tu primera parada: un gremio, un taller o una mesa junto al fuego.</p>
+            <p class="atlas-note" id="region-note">El lugar donde casi todo el mundo empieza sin saber que ha empezado.</p>
           </div>
         </div>
       </div>
+      <p class="atlas-foot">Las fichas describen <strong>escenas ilustrativas</strong> del universo, no un canon cerrado ni contenido de juego.</p>
     </div>
   </section>
 
@@ -150,47 +186,50 @@
       <div class="band-head band-head-row">
         <div>
           <p class="index-label"><span>03</span> Una vida propia</p>
-          <h2 id="paths-title">¿Qué historia<br><em>quieres vivir?</em></h2>
+          <h2 id="paths-title">Siete formas de vivir.<br><em>Ninguna te encierra.</em></h2>
         </div>
-        <p class="band-lede">No eliges una clase al nacer. Descubres quién eres por el camino. Siete formas completas de habitar el mundo.</p>
+        <p class="band-lede">No eliges una clase al nacer. Descubres qué te interesa al vivirlo. Cada camino tiene su propia aventura, desde un primer encargo hasta un lugar al que volver.</p>
       </div>
 
-      <div class="paths" aria-label="Caminos de vida">
-        <button class="path active" data-path="artesano" aria-pressed="true"><span class="path-num">01</span><span class="path-name">El artesano</span><span class="path-mark" aria-hidden="true">↗</span></button>
-        <button class="path" data-path="aventurero" aria-pressed="false"><span class="path-num">02</span><span class="path-name">El aventurero</span><span class="path-mark" aria-hidden="true">↗</span></button>
-        <button class="path" data-path="comerciante" aria-pressed="false"><span class="path-num">03</span><span class="path-name">El comerciante</span><span class="path-mark" aria-hidden="true">↗</span></button>
-        <button class="path" data-path="investigador" aria-pressed="false"><span class="path-num">04</span><span class="path-name">El investigador</span><span class="path-mark" aria-hidden="true">↗</span></button>
-        <button class="path" data-path="ciudadano" aria-pressed="false"><span class="path-num">05</span><span class="path-name">El ciudadano</span><span class="path-mark" aria-hidden="true">↗</span></button>
-        <button class="path" data-path="dirigente" aria-pressed="false"><span class="path-num">06</span><span class="path-name">El dirigente</span><span class="path-mark" aria-hidden="true">↗</span></button>
-        <button class="path" data-path="explorador" aria-pressed="false"><span class="path-num">07</span><span class="path-name">El explorador</span><span class="path-mark" aria-hidden="true">↗</span></button>
-      </div>
+      <div class="trades">
+        <div class="trade-list" role="group" aria-label="Oficios y caminos de vida">
+          <button class="trade active" data-path="artesano" aria-pressed="true"><span class="trade-num">01</span><span class="trade-name">El artesano</span><span class="trade-hint">Lo que se fabrica y se repara</span></button>
+          <button class="trade" data-path="aventurero" aria-pressed="false"><span class="trade-num">02</span><span class="trade-name">El aventurero</span><span class="trade-hint">Lo que se acepta sin saber</span></button>
+          <button class="trade" data-path="comerciante" aria-pressed="false"><span class="trade-num">03</span><span class="trade-name">El comerciante</span><span class="trade-hint">Lo que falta antes de que falte</span></button>
+          <button class="trade" data-path="investigador" aria-pressed="false"><span class="trade-num">04</span><span class="trade-name">El investigador</span><span class="trade-hint">Lo que no encaja en la versión oficial</span></button>
+          <button class="trade" data-path="ciudadano" aria-pressed="false"><span class="trade-num">05</span><span class="trade-name">El ciudadano</span><span class="trade-hint">Lo que se queda encendido</span></button>
+          <button class="trade" data-path="dirigente" aria-pressed="false"><span class="trade-num">06</span><span class="trade-name">El dirigente</span><span class="trade-hint">Lo que se decide por otros</span></button>
+          <button class="trade" data-path="explorador" aria-pressed="false"><span class="trade-num">07</span><span class="trade-name">El explorador</span><span class="trade-hint">Lo que aún no tiene nombre</span></button>
+        </div>
 
-      <article class="path-story" aria-live="polite">
-        <p class="kicker" id="life-kicker">El valor de lo que creas</p>
-        <h3 id="life-title">Hay espadas que cuentan la historia de dos héroes.</h3>
-        <p id="life-text">El que la empuñó. Y el que supo forjarla. Empieza como aprendiz, abre tu propio taller y descubre técnicas que podrían hacer llegar tu nombre hasta la corte de un reino.</p>
-        <p class="path-quote" id="life-quote">«Elias nunca necesitó ser guerrero para vivir una gran historia.»</p>
-        <div class="path-progress" id="life-progression"><span>Aprendiz</span><i aria-hidden="true">→</i><span>Maestro</span><i aria-hidden="true">→</i><span>Una leyenda propia</span></div>
-      </article>
+        <article class="trade-story" aria-live="polite">
+          <p class="kicker" id="life-kicker">El valor de lo que creas</p>
+          <h3 id="life-title">El martillo tiene un ritmo y tú lo aprendes.</h3>
+          <p class="trade-scene-label">Un día cualquiera</p>
+          <p id="life-scene">Elias enciende la fragua antes de que amanezca. Huele a carbón y a aceite. La primera pieza del día no se vende: es una bisagra para la puerta de la escuela.</p>
+          <div class="trade-note"><span class="trade-note-label">La visión del juego</span><p id="life-quote">Elias es un ejemplo de jugador, no un NPC: empezó de aprendiz en el taller de un herrero y con el tiempo abrió el suyo.</p></div>
+          <p class="trade-unseen"><span>Lo que no se ve</span> <span id="life-unseen">El pulso que se afina, el cliente que vuelve y la herramienta que pasa a otro.</span></p>
+        </article>
+      </div>
     </div>
   </section>
 
   <!-- ============ 04 CRÓNICA ============ -->
-  <section id="cronicas" class="band band-sage" aria-labelledby="chron-title">
+  <section id="cronicas" class="band band-sage chronicle-band" aria-labelledby="chron-title">
     <div class="wrap">
       <div class="band-head band-head-row">
         <div>
           <p class="index-label"><span>04</span> Todo está conectado</p>
-          <h2 id="chron-title">Una tormenta.<br><em>Mil historias posibles.</em></h2>
+          <h2 id="chron-title">Una tormenta.<br><em>Y muchas vidas que se cruzan.</em></h2>
         </div>
-        <p class="band-lede">No un evento que todos deban completar. Un mundo que aprende a seguir adelante sin ti y contigo.</p>
+        <p class="band-lede">Un derrumbe en Dorskar conecta a mineros, comerciantes e investigadores. Recorre los siete días de la biblia y después imagina cómo podrías participar.</p>
       </div>
 
       <div class="chronicle">
-        <div class="chronicle-intro">
-          <p class="kicker">Crónica ilustrativa · Dorskar</p>
-          <h3>La semana en que la montaña habló.</h3>
-          <p>Un derrumbe en una mina del norte cambia la vida mucho más allá de sus galerías. Esta es una de las historias conectadas que propone la visión: siete días, siete oficios, ninguna obligación.</p>
+        <div class="chronicle-left">
+          <p class="kicker">Crónica ilustrativa · Dorskar y Valdoria</p>
+          <h3>La semana en que la montaña se calló.</h3>
+          <p>No es una misión que todos deban completar. Este resumen conserva el acontecimiento de la biblia: rescate, escasez de hierro, reconstrucción y un descubrimiento inesperado.</p>
           <div class="week" role="group" aria-label="Elige un día de la crónica">
             <button data-day="0" class="active" aria-pressed="true"><small>Lun</small><span>01</span></button>
             <button data-day="1" aria-pressed="false"><small>Mar</small><span>02</span></button>
@@ -201,59 +240,135 @@
             <button data-day="6" aria-pressed="false"><small>Dom</small><span>07</span></button>
           </div>
         </div>
+
         <article class="day-card" aria-live="polite">
           <div class="day-top">
             <p class="kicker" id="day-label">Lunes / La tormenta</p>
             <span class="day-number" id="day-number" aria-hidden="true">01</span>
           </div>
-          <h3 id="day-title">La mina guarda silencio.</h3>
-          <p id="day-text">Una tormenta provoca un derrumbe en Dorskar. Hay trabajadores atrapados. El gremio local publica un contrato urgente y la región empieza a movilizarse.</p>
+          <h3 id="day-title">La montaña interrumpe lo cotidiano.</h3>
+          <p id="day-text">Una tormenta provoca un derrumbe en una mina de Dorskar. Varios trabajadores quedan atrapados y el gremio publica un contrato urgente. Una necesidad local empieza a conectar vidas.</p>
           <div class="day-bottom">
-            <span id="day-people" class="day-people">Mineros · Aventureros · Gremios</span>
+            <span id="day-people" class="day-people">Mineros · El gremio · Las familias</span>
             <button id="next-day" class="btn btn-outline">Siguiente día <span aria-hidden="true">→</span></button>
+          </div>
+        </article>
+      </div>
+
+      <div class="decision">
+        <div class="decision-head">
+          <p class="kicker">Ahora imagina tu respuesta</p>
+          <h3>El mundo puede seguir. Tú eliges cómo estar.</h3>
+          <p>Estas tres ramas son ejemplos alternativos escritos para la web, no una continuación literal de la biblia. Muestran posibles consecuencias en la comunidad y el mercado; no ejecutan una IA ni un servidor de juego.</p>
+        </div>
+        <div class="decision-options" role="group" aria-label="Decisión sobre el derrumbe">
+          <button type="button" data-branch="ausente" aria-pressed="false">
+            <span class="branch-name">No intervenir</span>
+            <span class="branch-hint">Que decida el gremio</span>
+          </button>
+          <button type="button" data-branch="mina" aria-pressed="false">
+            <span class="branch-name">Bajar a la mina</span>
+            <span class="branch-hint">Ayudar a desescombrar</span>
+          </button>
+          <button type="button" data-branch="suministros" aria-pressed="false">
+            <span class="branch-name">Traer suministros</span>
+            <span class="branch-hint">Organizar la caravana</span>
+          </button>
+        </div>
+        <article class="decision-result" aria-live="polite">
+          <p class="decision-empty" id="branch-empty">Elige una respuesta para imaginar qué podría cambiar en los días siguientes.</p>
+          <div id="branch-result" hidden>
+            <h4 id="branch-title">La decisión</h4>
+            <dl class="branch-dl">
+              <div><dt>La comunidad</dt><dd id="branch-community"></dd></div>
+              <div><dt>La economía</dt><dd id="branch-economy"></dd></div>
+            </dl>
+            <p class="branch-open"><span>Queda abierto</span> <span id="branch-open"></span></p>
           </div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- ============ MANIFIESTO ============ -->
-  <section class="band band-ink manifesto" aria-labelledby="promise-title">
+  <!-- ============ 05 ENCARGO ============ -->
+  <section id="encargo" class="band band-paper commission-band" aria-labelledby="mill-title">
     <div class="wrap">
-      <h2 id="promise-title">Un lugar al que volver.<br><em>No una obligación más.</em></h2>
+      <div class="band-head">
+        <p class="index-label"><span>05</span> El mundo te pide cosas</p>
+        <h2 id="mill-title">Un encargo corriente.<br><em>Con consecuencias corrientes.</em></h2>
+      </div>
+
+      <div class="commission">
+        <figure class="commission-art">
+          <img src="assets/fantasy/home.webp" width="1280" height="720" loading="lazy" decoding="async"
+               alt="Escena ilustrativa: interior cálido de una casa con una persona sirviendo comida y vapor sobre la mesa.">
+          <figcaption>Escena ilustrativa · La cocina del molino, antes de la molienda</figcaption>
+        </figure>
+        <div class="commission-copy">
+          <p class="kicker">La molinera · Valdoria</p>
+          <blockquote class="dialogue">
+            <p>«El eje se ha secado con el frío y la piedra gira torcida. Si muelo así, la harina sale con arena y se pierde el pan de la semana. No necesito un héroe: necesito que alguien mire el rodezno y me diga qué hago.»</p>
+          </blockquote>
+          <p class="commission-cause"><strong>La causa.</strong> La madera del eje se contrajo con las heladas; el rodezno se ha desplazado dos dedos y la piedra ya no asienta. Repararlo exige elegir entre tiempo, dinero o deuda.</p>
+          <div class="solutions" role="group" aria-label="Soluciones para el molino">
+            <button type="button" data-solution="cunas" aria-pressed="true"><span>Cuñas de encina</span><small>barato y rápido</small></button>
+            <button type="button" data-solution="roble" aria-pressed="false"><span>Eje de roble de Dorskar</span><small>lento y duradero</small></button>
+            <button type="button" data-solution="harina" aria-pressed="false"><span>Harina de otra aldea</span><small>dar tiempo a la reparación</small></button>
+          </div>
+          <div class="solution-result" aria-live="polite">
+            <p class="solution-label" id="solution-label">Lo que pasa si eliges cuñas de encina</p>
+            <p id="solution-text">La piedra vuelve a girar recta sin piezas nuevas. Cuesta poco y no depende de nadie; aguanta hasta la primavera y en marzo habrá que volver a mirarlo.</p>
+            <p class="solution-close"><span>La consecuencia</span> <span id="solution-close-text">El pan sale esta semana. En marzo, la molinera tendrá que acordarse de llamar a alguien otra vez.</span></p>
+          </div>
+        </div>
+      </div>
+      <p class="scene-note">Encargo y escena ilustrativos escritos para esta web; no son canon de la biblia.</p>
+
+      <ul class="needs" aria-label="Lo que el mundo te va a pedir">
+        <li><span>Un taller</span> Un maestro que te enseñe y una primera pieza que lleve tu firma.</li>
+        <li><span>Un hogar</span> Una puerta que se pueda cerrar y una silla de más para quien llegue.</li>
+        <li><span>Un camino</span> Alguien que vuelva con noticias y no solo con mercancía.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 06 HORIZONTE ============ -->
+  <section id="horizonte" class="band band-ink horizon-band" aria-labelledby="horizon-title">
+    <div class="wrap horizon">
+      <div>
+        <p class="index-label"><span>06</span> El horizonte</p>
+        <h2 id="horizon-title">Antes de un continente,<br><em>una ciudad que respire.</em></h2>
+        <p class="horizon-text">La profundidad antes que el tamaño. El primer objetivo es una ciudad con habitantes que tengan sus propias vidas, oficios que se sostengan entre sí y pequeñas historias que conecten a todos. Después, ampliar el mapa.</p>
+        <div class="horizon-links">
+          <a class="btn btn-outline" href="vision.html">Leer el manifiesto <span aria-hidden="true">↗</span></a>
+          <a class="link-arrow" href="privacidad.html">Privacidad y fuentes <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <aside class="status">
+        <p class="status-pill"><i aria-hidden="true"></i> Fase conceptual</p>
+        <h3>Esto es una visión, no un lanzamiento.</h3>
+        <p>No hay beta, ni fecha, ni financiación que anunciar. Lo que se describe aquí son intenciones de diseño sobre el papel; ninguna pantalla de esta web es una captura de juego.</p>
+        <dl>
+          <div><dt>Ahora</dt><dd>Biblia conceptual y universo</dd></div>
+          <div><dt>Primer objetivo</dt><dd>Una región pequeña y profunda</dd></div>
+          <div><dt>Si cambia algo</dt><dd>Se dirá en esta página</dd></div>
+        </dl>
+      </aside>
+    </div>
+
+    <div class="wrap commitments">
+      <h3>Tres compromisos que no dependen del presupuesto.</h3>
       <div class="promises">
-        <p><b>Tu ausencia no es un castigo.</b> Volver después de un mes significaría descubrir historias nuevas, no perder lo que habías construido.</p>
+        <p><b>Tu ausencia no es un castigo.</b> Volver después de un mes significaría encontrar historias nuevas, no perder lo que habías construido.</p>
         <p><b>Lo extraordinario no se compra.</b> La visión excluye vender poder competitivo, clases únicas o influencia política por dinero real.</p>
         <p><b>La aventura también es una elección.</b> PvP voluntario, vidas pacíficas completas y un solo personaje para todas tus etapas.</p>
       </div>
     </div>
   </section>
 
-  <!-- ============ 05 HORIZONTE ============ -->
-  <section id="horizonte" class="band band-paper" aria-labelledby="horizon-title">
-    <div class="wrap horizon">
-      <div>
-        <p class="index-label"><span>05</span> El horizonte</p>
-        <h2 id="horizon-title">Antes de un continente,<br><em>una ciudad que respire.</em></h2>
-        <p class="horizon-text">La profundidad antes que el tamaño. El primer objetivo de la biblia es conectar una ciudad, sus habitantes, sus oficios y su entorno. Hacer que una sola historia tenga consecuencias reales.</p>
-        <a class="btn btn-outline-dark" href="vision.html">Leer el manifiesto del mundo <span aria-hidden="true">↗</span></a>
-      </div>
-      <aside class="status">
-        <p class="status-pill"><i aria-hidden="true"></i> Fase conceptual</p>
-        <h3>Esto es el principio, no una promesa de lanzamiento.</h3>
-        <p>El Mundo Vivo es, por ahora, una visión de diseño. Los sistemas descritos son objetivos del proyecto, no funciones disponibles de un videojuego publicado.</p>
-        <dl>
-          <div><dt>Ahora</dt><dd>Biblia conceptual y universo</dd></div>
-          <div><dt>Primer objetivo</dt><dd>Una región pequeña y profunda</dd></div>
-          <div><dt>Lanzamiento</dt><dd>Sin fecha anunciada</dd></div>
-        </dl>
-      </aside>
-    </div>
-  </section>
-
   <section class="coda">
     <p>Algunas leyendas empuñan una espada.<br>Otras mantienen encendida una posada.</p>
-    <a href="#inicio">Encuentra tu lugar <span aria-hidden="true">↑</span></a>
+    <a href="#inicio">Volver a la plaza <span aria-hidden="true">↑</span></a>
   </section>
 </main>
 
@@ -267,19 +382,17 @@
       <h4>El sitio</h4>
       <a href="vision.html">Manifiesto</a>
       <a href="privacidad.html">Privacidad y fuentes</a>
-      <a href="compare.html">Comparativa antes / después</a>
-      <a href="antes/index.html">Ver versión anterior</a>
     </div>
     <div>
-      <h4>Láminas</h4>
-      <p>Arte histórico de dominio público procedente de The Metropolitan Museum of Art (Open Access). Cada imagen se atribuye bajo su lámina. No son capturas de un videojuego.</p>
+      <h4>Las imágenes</h4>
+      <p>Ilustraciones del universo procedentes del ejemplo visual aportado por el autor para este mismo proyecto; la página de origen declara que fueron generadas con IA. Se usan como arte atmosférico, no como capturas de juego. No se atribuye dominio público ni autoría a NEXUS.</p>
     </div>
     <div>
-      <h4>Tipografía</h4>
-      <p>Cormorant Garamond y Karla, servidas localmente bajo SIL Open Font License 1.1 (<a href="assets/fonts/OFL.txt">licencia completa</a>). Sin peticiones a servidores de terceros.</p>
+      <h4>Tipografía y datos</h4>
+      <p>Cormorant Garamond y Karla, servidas localmente bajo SIL Open Font License 1.1 (<a href="assets/fonts/OFL.txt">licencia completa</a>). Sin cookies, analítica ni almacenamiento local. Nada de lo que elijas aquí se envía a un servidor.</p>
     </div>
   </div>
-  <p class="colophon-note">Proyecto conceptual independiente · Sin analítica, cookies propias ni formularios.</p>
+  <p class="colophon-note">Proyecto conceptual independiente · Las escenas y los personajes descritos son ilustrativos y no constituyen canon cerrado.</p>
 </footer>
 
 <script src="app.js" defer></script>
