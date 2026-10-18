@@ -141,3 +141,21 @@ assets/fonts/    seis WOFF2 + OFL.txt
 assets/sigil.svg único vector heredado en uso
 assets/social.png tarjeta social 1200×630 regenerada
 ```
+
+## 9. Regresión visual tras la publicación
+
+El usuario detectó pérdida de calidad y elementos desplazados. La investigación de NEXUS
+reprodujo dos fallos que las pruebas anteriores no cubrían:
+
+- Entre 861 y 1020 px, una regla residual `bottom:96px` desplazaba el selector de luz sobre
+  las acciones. Se eliminó ese desplazamiento, manteniendo el control en el flujo normal.
+- Una sesión con `styles.css` de la versión anterior en caché podía recibir el HTML nuevo y
+  mostrar las opciones de llegada como bloques sin la distribución de rejilla. Se reprodujo
+  con la hoja real del commit 639825d, almacenada mediante HTTP. El HTML actual solicita CSS
+  y JS con una clave de versión para evitar esa mezcla entre publicaciones.
+
+La prueba de regresión falló antes de corregir (dos solapamientos y distribución perdida con
+caché caliente) y pasa después. Se comprobaron nueve anchos, incluidos 860/900/1020/1021.
+Las pruebas funcionales de nueve escenarios y las interacciones de cuatro anchos siguen pasando.
+Esto no certifica que toda discrepancia visual señalada por el usuario esté resuelta: se han
+corregido las causas reproducidas; hace falta contrastar cualquier síntoma restante con su vista.

@@ -748,7 +748,7 @@ html[data-time="noche"] .cover-orb { top: 8%; right: 26%; opacity: .7; }
   .band-head-row { grid-template-columns: minmax(0, 1fr); align-items: start; }
   .band-lede { max-width: 56ch; }
   .atlas { grid-template-columns: minmax(0, 280px) minmax(0, 1fr); }
-  .light-dial { bottom: 96px; }
+
 }
 
 @media (max-width: 860px) {
